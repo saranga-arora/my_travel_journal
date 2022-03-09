@@ -11,4 +11,6 @@ class PlaceResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :users
+
 end
