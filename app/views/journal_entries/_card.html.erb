@@ -6,44 +6,32 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @journal_entry.user.present? %>
           <%= link_to journal_entry.user, journal_entry.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Place</dt>
-      <!-- Display place_id start -->
       <dd>
         <% if @journal_entry.place.present? %>
           <%= link_to journal_entry.place, journal_entry.place %>
         <% end %>
       </dd>
-      <!-- Display place_id end -->
 
       <dt>Title</dt>
-      <!-- Display title start -->
       <dd><%= journal_entry.title %></dd>
-      <!-- Display title end -->
 
       <dt>Date</dt>
-      <!-- Display date start -->
       <dd><%= journal_entry.date %></dd>
-      <!-- Display date end -->
 
       <dt>Description</dt>
-      <!-- Display description start -->
       <dd><%= journal_entry.description %></dd>
-      <!-- Display description end -->
 
       <dt>Image</dt>
-      <!-- Display image start -->
       <dd>
         <%= cl_image_tag @journal_entry.image, class: "img-fluid" %>
       </dd>
-      <!-- Display image end -->
 
     </dl>
 
@@ -52,7 +40,6 @@
         <%= link_to_show_or_back journal_entry, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link journal_entry start -->
       <div class="col">
         <% if current_user == @journal_entry.user %>
           <%= link_to edit_journal_entry_url(journal_entry), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -60,9 +47,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link journal_entry end -->
 
-      <!-- Delete link journal_entry start -->
       <div class="col">
         <% if current_user == @journal_entry.user %>
           <%= link_to journal_entry, method: :delete, data: { confirm: "Do you really want to delete this journal_entry?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -70,7 +55,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link journal_entry end -->
     </div>
   </div>
 
