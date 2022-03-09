@@ -42,7 +42,7 @@
 
     <%= f.label :place_id %>
     <!-- Input for place_id start -->
-    <%= f.number_field :place_id, class: place_class, placeholder: "Enter place" %>
+    <%= f.collection_select :place_id, Place.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for place_id end -->
     <% if place_was_invalid %>
       <% journal_entry.errors.full_messages_for(:place).each do |message| %>
