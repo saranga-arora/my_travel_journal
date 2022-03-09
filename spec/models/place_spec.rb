@@ -4,6 +4,8 @@ RSpec.describe Place, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:journal_entries) }
+
     end
 
     describe "InDirect Associations" do

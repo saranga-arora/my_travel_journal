@@ -1,6 +1,8 @@
 class JournalEntry < ApplicationRecord
   # Direct associations
 
+  belongs_to :place
+
   belongs_to :user,
              :counter_cache => true
 

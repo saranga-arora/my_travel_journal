@@ -1,6 +1,9 @@
 class Place < ApplicationRecord
   # Direct associations
 
+  has_many   :journal_entries,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
