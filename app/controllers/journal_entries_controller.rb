@@ -5,7 +5,8 @@ class JournalEntriesController < ApplicationController
 
   # GET /journal_entries
   def index
-    @journal_entries = current_user.journal_entries.page(params[:page]).per(10)
+    @q = current_user.journal_entries.ransack(params[:q])
+    @journal_entries = @q.result(:distinct => true).includes(:user, :place).page(params[:page]).per(10)
   end
 
   # GET /journal_entries/1
