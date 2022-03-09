@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= journal_entry.user_id %></dd>
+      <dd>
+        <% if @journal_entry.user.present? %>
+          <%= link_to journal_entry.user, journal_entry.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Place</dt>
       <!-- Display place_id start -->
-      <dd><%= journal_entry.place_id %></dd>
+      <dd>
+        <% if @journal_entry.place.present? %>
+          <%= link_to journal_entry.place, journal_entry.place %>
+        <% end %>
+      </dd>
       <!-- Display place_id end -->
 
       <dt>Title</dt>
