@@ -6,6 +6,10 @@ class Place < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :journal_entries,
+             :source => :user
+
   # Validations
 
   validates :name, :uniqueness => true

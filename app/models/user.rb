@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :places,
+             :through => :journal_entries,
+             :source => :place
+
   # Validations
 
   # Scopes
