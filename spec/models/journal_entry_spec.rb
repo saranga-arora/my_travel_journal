@@ -12,6 +12,8 @@ RSpec.describe JournalEntry, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:date) }
+
     it { should validate_presence_of(:place_id) }
 
     it { should validate_presence_of(:title) }

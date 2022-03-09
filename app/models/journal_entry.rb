@@ -5,6 +5,8 @@ class JournalEntry < ApplicationRecord
 
   # Validations
 
+  validates :date, :presence => true
+
   validates :place_id, :presence => true
 
   validates :title, :presence => true
