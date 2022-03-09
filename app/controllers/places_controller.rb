@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
 
   # GET /places
   def index
-    @places = Place.all
+    @places = Place.page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@places.where.not(:location_latitude => nil)) do |place, marker|
       marker.lat place.location_latitude
       marker.lng place.location_longitude
