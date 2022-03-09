@@ -5,6 +5,8 @@ class Place < ApplicationRecord
 
   # Validations
 
+  validates :name, :presence => true
+
   # Scopes
 
   def to_s
