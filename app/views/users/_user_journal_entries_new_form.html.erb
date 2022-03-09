@@ -1,0 +1,61 @@
+<!-- Form journal_entry start -->
+<%= form_with(model: @journal_entry, local: true) do |f| %>
+<!-- Form journal_entry end -->
+
+  <!-- Label and input for user_id start -->
+  <!-- Input for user_id start -->
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <!-- Input for user_id end -->
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for place_id start -->
+  <div class="form-group">
+    <%= f.label :place_id %>
+
+    <!-- Input for place_id start -->
+    <%= f.text_field :place_id, class: "form-control" %>
+    <!-- Input for place_id end -->
+  </div>
+  <!-- Label and input for place_id end -->
+
+  <!-- Label and input for title start -->
+  <div class="form-group">
+    <%= f.label :title %>
+
+    <!-- Input for title start -->
+    <%= f.text_field :title, class: "form-control" %>
+    <!-- Input for title end -->
+  </div>
+  <!-- Label and input for title end -->
+
+  <!-- Label and input for date start -->
+  <div class="form-group">
+    <%= f.label :date %>
+
+    <!-- Input for date start -->
+    <%= f.date_select :date, class: "form-control" %>
+    <!-- Input for date end -->
+  </div>
+  <!-- Label and input for date end -->
+
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <%= f.label :description %>
+    <!-- Input for description start -->
+    <%= f.text_area :description, rows: "3", class: "form-control" %>
+    <!-- Input for description end -->
+  </div>
+  <!-- Label and input for description end -->
+
+  <!-- Label and input for image start -->
+  <div class="form-group">
+    <%= f.label :image %>
+
+    <!-- Input for image start -->
+    <%= f.text_field :image, class: "form-control" %>
+    <!-- Input for image end -->
+  </div>
+  <!-- Label and input for image end -->
+
+  <%= f.submit "Create journal entry", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

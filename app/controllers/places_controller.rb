@@ -8,6 +8,7 @@ class PlacesController < ApplicationController
 
   # GET /places/1
   def show
+    @journal_entry = JournalEntry.new
   end
 
   # GET /places/new

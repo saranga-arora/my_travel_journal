@@ -24,7 +24,12 @@ class JournalEntriesController < ApplicationController
     @journal_entry = JournalEntry.new(journal_entry_params)
 
     if @journal_entry.save
-      redirect_to @journal_entry, notice: 'Journal entry was successfully created.'
+      message = 'JournalEntry was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @journal_entry, notice: message
+      end
     else
       render :new
     end
