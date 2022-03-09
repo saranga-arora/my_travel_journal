@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "journal_entries#index"
   resources :places
   resources :journal_entries
   devise_for :users
