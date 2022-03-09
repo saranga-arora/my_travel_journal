@@ -16,5 +16,4 @@ class JournalEntryResource < ApplicationResource
   belongs_to :user
 
   # Indirect associations
-
 end

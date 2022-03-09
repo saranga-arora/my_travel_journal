@@ -1,21 +1,16 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe JournalEntry, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should belong_to(:place) }
 
     it { should belong_to(:user) }
+  end
 
-    end
+  describe "InDirect Associations" do
+  end
 
-    describe "InDirect Associations" do
-
-    end
-
-    describe "Validations" do
-
+  describe "Validations" do
     it { should validate_presence_of(:date) }
 
     it { should validate_presence_of(:place_id) }
@@ -23,6 +18,5 @@ RSpec.describe JournalEntry, type: :model do
     it { should validate_presence_of(:title) }
 
     it { should validate_presence_of(:user_id) }
-
-    end
+  end
 end

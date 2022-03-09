@@ -13,7 +13,7 @@ class Api::V1::JournalEntriesController < Api::V1::GraphitiController
     journal_entry = JournalEntryResource.build(params)
 
     if journal_entry.save
-      render jsonapi: journal_entry, status: 201
+      render jsonapi: journal_entry, status: :created
     else
       render jsonapi_errors: journal_entry
     end
@@ -33,7 +33,7 @@ class Api::V1::JournalEntriesController < Api::V1::GraphitiController
     journal_entry = JournalEntryResource.find(params)
 
     if journal_entry.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: journal_entry
     end

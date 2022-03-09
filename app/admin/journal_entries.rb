@@ -1,6 +1,5 @@
 ActiveAdmin.register JournalEntry do
-
- permit_params :user_id, :place_id, :title, :date, :description, :image
+  permit_params :user_id, :place_id, :title, :date, :description, :image
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +13,4 @@ ActiveAdmin.register JournalEntry do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

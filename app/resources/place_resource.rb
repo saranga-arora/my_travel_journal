@@ -7,10 +7,9 @@ class PlaceResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :journal_entries
+  has_many :journal_entries
 
   # Indirect associations
 
   many_to_many :users
-
 end

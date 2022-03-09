@@ -13,7 +13,7 @@ class Api::V1::PlacesController < Api::V1::GraphitiController
     place = PlaceResource.build(params)
 
     if place.save
-      render jsonapi: place, status: 201
+      render jsonapi: place, status: :created
     else
       render jsonapi_errors: place
     end
@@ -33,7 +33,7 @@ class Api::V1::PlacesController < Api::V1::GraphitiController
     place = PlaceResource.find(params)
 
     if place.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: place
     end
