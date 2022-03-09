@@ -46,16 +46,20 @@
 
       <!-- Edit link journal_entry start -->
       <div class="col">
-        <%= link_to edit_journal_entry_url(journal_entry), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @journal_entry.user %>
+          <%= link_to edit_journal_entry_url(journal_entry), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link journal_entry end -->
 
       <!-- Delete link journal_entry start -->
       <div class="col">
-        <%= link_to journal_entry, method: :delete, data: { confirm: "Do you really want to delete this journal_entry?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @journal_entry.user %>
+          <%= link_to journal_entry, method: :delete, data: { confirm: "Do you really want to delete this journal_entry?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link journal_entry end -->

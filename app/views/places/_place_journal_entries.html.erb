@@ -15,8 +15,10 @@
         <!-- Show link end -->
 
         <!-- Delete link start -->
-        <%= link_to journal_entry, method: :delete, data: { confirm: "Do you really want to delete this journal_entry" } do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == journal_entry.user %>
+          <%= link_to journal_entry, method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
         <!-- Delete link end -->
 

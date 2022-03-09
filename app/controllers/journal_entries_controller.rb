@@ -1,4 +1,6 @@
 class JournalEntriesController < ApplicationController
+  before_action :current_user_must_be_journal_entry_user, only: [:edit, :update, :destroy] 
+
   before_action :set_journal_entry, only: [:show, :edit, :update, :destroy]
 
   # GET /journal_entries
@@ -57,6 +59,14 @@ class JournalEntriesController < ApplicationController
 
 
   private
+
+  def current_user_must_be_journal_entry_user
+    set_journal_entry
+    unless current_user == @journal_entry.user
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_journal_entry
       @journal_entry = JournalEntry.find(params[:id])
