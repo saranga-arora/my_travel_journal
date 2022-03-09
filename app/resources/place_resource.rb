@@ -7,6 +7,8 @@ class PlaceResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :journal_entries
+
   # Indirect associations
 
 end
