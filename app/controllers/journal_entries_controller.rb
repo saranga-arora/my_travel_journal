@@ -5,7 +5,7 @@ class JournalEntriesController < ApplicationController
 
   # GET /journal_entries
   def index
-    @journal_entries = JournalEntry.all
+    @journal_entries = current_user.journal_entries.page(params[:page]).per(10)
   end
 
   # GET /journal_entries/1
