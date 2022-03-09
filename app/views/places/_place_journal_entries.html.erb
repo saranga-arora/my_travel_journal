@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Journal Entries
+
+    <a data-toggle="collapse" href="#place_journal_entries_new_form">
+      Add journal entry
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @place.journal_entries.each do |journal_entry| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to journal_entry, journal_entry %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to journal_entry, method: :delete, data: { confirm: "Do you really want to delete this journal_entry" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="place_journal_entries_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

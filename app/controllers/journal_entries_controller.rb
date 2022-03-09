@@ -42,8 +42,14 @@ class JournalEntriesController < ApplicationController
   # DELETE /journal_entries/1
   def destroy
     @journal_entry.destroy
-    redirect_to journal_entries_url, notice: 'Journal entry was successfully destroyed.'
+    message = "JournalEntry was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to journal_entries_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
